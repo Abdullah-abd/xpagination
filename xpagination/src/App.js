@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import TableRow from './components/TableRow';
 function App() {
   const [employeeData,setEmployeeData]=useState([])
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [pagedData,setPagedData]=useState([])
   useEffect(() => {
     const fetchEmployeeData = async () => {
@@ -44,6 +44,7 @@ function App() {
   };
   return (
     <div className="App">
+      <h1>Employee Data Table</h1>
       <table style={{width:"100%",borderBottom:"1px solid seagreen"}}>
         <thead><tr style={{width:"100%",backgroundColor:"seagreen",textAlign:"justify"}}>
           <th>Id</th>
