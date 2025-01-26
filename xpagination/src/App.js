@@ -15,7 +15,7 @@ function App() {
         }
         
       } catch (error) {
-        window.alert("failed to fetch data")
+        alert("Failed to fetch data. Please try again later.")
       }
     }
     fetchEmployeeData();
