@@ -9,9 +9,11 @@ function App() {
     const fetchEmployeeData = async ()=>{
       try {
         const res = await fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json");
+        if(res.status===ok){
         const data = await res.json();
-        console.log(data)
         setEmployeeData(data)
+        }
+        
       } catch (error) {
         console.error("fetch api error:",error)
       }
