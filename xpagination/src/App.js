@@ -3,23 +3,26 @@ import { useEffect, useState } from 'react';
 import TableRow from './components/TableRow';
 function App() {
   const [employeeData,setEmployeeData]=useState([])
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [pagedData,setPagedData]=useState([])
-  useEffect(()=>{
-    const fetchEmployeeData = async ()=>{
+  useEffect(() => {
+    const fetchEmployeeData = async () => {
       try {
         const res = await fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json");
-        if(res.ok){
-        const data = await res.json();
-        setEmployeeData(data)
+        if (res.ok) {
+          const data = await res.json();
+          setEmployeeData(data);
+        } else {
+          alert(`Failed to fetch data. Status: ${res.status}`);
         }
-        
       } catch (error) {
-        alert("Failed to fetch data. Please try again later.")
+        alert("Failed to fetch data. Please try again later.");
+        console.error("Fetch error:", error);
       }
-    }
+    };
+  
     fetchEmployeeData();
-  },[])
+  }, []);
 
   useEffect(() => {
     const chunkSize = 10;
