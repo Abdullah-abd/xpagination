@@ -15,7 +15,7 @@ function App() {
         }
         
       } catch (error) {
-        console.error("fetch api error:",error)
+        window.alert("failed to fetch data")
       }
     }
     fetchEmployeeData();
